@@ -7,15 +7,15 @@ describe('Тесты формы авторизации на login.qa.studio', ()
   const emailWithUpperCase = 'GerMan@Dolnikov.ru'
 
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('https://login.qa.studio')
   })
 
   it('1. Позитивный кейс авторизации', () => {
     // Вводим правильный логин
-    cy.get('input[name="email"]').type(correctEmail)
+    cy.get('input[type="email"]').type(correctEmail)
     
     // Вводим правильный пароль
-    cy.get('input[name="password"]').type(correctPassword)
+    cy.get('input[type="password"]').type(correctPassword)
     
     // Нажимаем войти
     cy.get('button[type="submit"]').click()
@@ -30,7 +30,7 @@ describe('Тесты формы авторизации на login.qa.studio', ()
     cy.contains('Забыли пароль').click()
     
     // Вводим любой имейл
-    cy.get('input[name="email"]').type('test@example.com')
+    cy.get('input[type="email"]').type('test@example.com')
     
     // Нажимаем кнопку восстановления
     cy.get('button[type="submit"]').click()
@@ -42,10 +42,10 @@ describe('Тесты формы авторизации на login.qa.studio', ()
 
   it('3. Негативный кейс авторизации - неправильный пароль', () => {
     // Вводим правильный логин
-    cy.get('input[name="email"]').type(correctEmail)
+    cy.get('input[type="email"]').type(correctEmail)
     
     // Вводим НЕправильный пароль
-    cy.get('input[name="password"]').type(wrongPassword)
+    cy.get('input[type="password"]').type(wrongPassword)
     
     // Нажимаем войти
     cy.get('button[type="submit"]').click()
@@ -57,10 +57,10 @@ describe('Тесты формы авторизации на login.qa.studio', ()
 
   it('4. Негативный кейс авторизации - неправильный логин', () => {
     // Вводим НЕправильный логин
-    cy.get('input[name="email"]').type(wrongEmail)
+    cy.get('input[type="email"]').type(wrongEmail)
     
     // Вводим правильный пароль
-    cy.get('input[name="password"]').type(correctPassword)
+    cy.get('input[type="password"]').type(correctPassword)
     
     // Нажимаем войти
     cy.get('button[type="submit"]').click()
@@ -72,10 +72,10 @@ describe('Тесты формы авторизации на login.qa.studio', ()
 
   it('5. Негативный кейс валидации - логин без @', () => {
     // Вводим логин без @
-    cy.get('input[name="email"]').type(emailWithoutAt)
+    cy.get('input[type="email"]').type(emailWithoutAt)
     
     // Вводим правильный пароль
-    cy.get('input[name="password"]').type(correctPassword)
+    cy.get('input[type="password"]').type(correctPassword)
     
     // Нажимаем войти
     cy.get('button[type="submit"]').click()
@@ -86,10 +86,10 @@ describe('Тесты формы авторизации на login.qa.studio', ()
 
   it('6. Проверка приведения к строчным буквам в логине', () => {
     // Вводим логин с заглавными буквами
-    cy.get('input[name="email"]').type(emailWithUpperCase)
+    cy.get('input[type="email"]').type(emailWithUpperCase)
     
     // Вводим правильный пароль
-    cy.get('input[name="password"]').type(correctPassword)
+    cy.get('input[type="password"]').type(correctPassword)
     
     // Нажимаем войти
     cy.get('button[type="submit"]').click()
