@@ -14,10 +14,10 @@ describe('Проверка покупки нового аватара', function
     cy.get('input[id="k_password"]', { timeout: 15000 }).should('be.visible')
     
     // Вводим логин
-    cy.get('input[id="k_email"]').type('ghaliev@yandex.ru')
+    cy.get('input[id="k_email"]').type('USER_LOGIN')
     
     // Вводим пароль
-    cy.get('input[id="k_password"]').type('1475963Ruselufa!')
+    cy.get('input[id="k_password"]').type('USER_PASSWORD')
     
     // Нажимаем кнопку Подтвердить
     cy.get('button[type="submit"]').click()

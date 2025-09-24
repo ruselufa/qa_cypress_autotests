@@ -20,8 +20,8 @@ describe('Простая проверка pokemonbattle.ru', function () {
         cy.get('input[id="k_password"]').should('be.visible')
         
         // Пробуем авторизоваться
-        cy.get('input[id="k_email"]').type('ghaliev@yandex.ru')
-        cy.get('input[id="k_password"]').type('1475963Ruselufa!')
+        cy.get('input[id="k_email"]').type('USER_LOGIN')
+        cy.get('input[id="k_password"]').type('USER_PASSWORD')
         cy.get('button[type="submit"]').click()
         
         // Ждем результата
